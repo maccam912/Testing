@@ -14,14 +14,19 @@
             "x": 0.98,
             "y": 0.5,
             "uniqueID": 1747064084027,
-            "ioValues": [],
+            "ioValues": [
+                {
+                    "name": "number or geometry",
+                    "ioValue": 1747064118277
+                }
+            ],
             "description": "Connect geometry here to make it available in the next level up. "
         },
         {
             "atomType": "Molecule",
             "name": "Molecule",
-            "x": 0.1188340807174888,
-            "y": 0.3017621145374449,
+            "x": 0.16928251121076232,
+            "y": 0.4449339207048458,
             "uniqueID": 1747064118277,
             "ioValues": [
                 {
@@ -31,6 +36,10 @@
                 {
                     "name": "width",
                     "ioValue": 10
+                },
+                {
+                    "name": "ply_thk",
+                    "ioValue": 0.8
                 }
             ],
             "description": "Molecules provide an organizational structure to contain atoms. Double click on a molecule to enter it. Use the up arrow in the upper right hand corner of the screen to go up one level.",
@@ -42,7 +51,12 @@
                     "x": 0.98,
                     "y": 0.5,
                     "uniqueID": 1747064117438,
-                    "ioValues": [],
+                    "ioValues": [
+                        {
+                            "name": "number or geometry",
+                            "ioValue": 1747064518666
+                        }
+                    ],
                     "description": "Connect geometry here to make it available in the next level up. "
                 },
                 {
@@ -115,8 +129,8 @@
                 {
                     "atomType": "Move",
                     "name": "Move",
-                    "x": 0.36378923766816146,
-                    "y": 0.6850220264317181,
+                    "x": 0.4052690582959641,
+                    "y": 0.6585903083700441,
                     "uniqueID": 1747064309237,
                     "ioValues": [
                         {
@@ -129,7 +143,7 @@
                         },
                         {
                             "name": "yDist",
-                            "ioValue": 4
+                            "ioValue": 5
                         },
                         {
                             "name": "zDist",
@@ -141,26 +155,86 @@
                 {
                     "atomType": "Equation",
                     "name": "x/2",
-                    "x": 0.242152466367713,
-                    "y": 0.7665198237885463,
+                    "x": 0.2875560538116592,
+                    "y": 0.8568281938325991,
                     "uniqueID": 1747064342205,
                     "ioValues": [
                         {
                             "name": "x",
-                            "ioValue": 8
+                            "ioValue": 10
                         }
                     ],
                     "description": "Defines a mathematical equation. Edit the output field to add or remove inputs.",
                     "currentEquation": "x/2"
+                },
+                {
+                    "atomType": "Difference",
+                    "name": "Difference",
+                    "x": 0.4613228699551569,
+                    "y": 0.4030837004405286,
+                    "uniqueID": 1747064402235,
+                    "ioValues": [
+                        {
+                            "name": "geometry1",
+                            "ioValue": 1747064129127
+                        },
+                        {
+                            "name": "geometry2",
+                            "ioValue": 1747064309237
+                        }
+                    ],
+                    "description": "Subtracts shape two from shape one."
+                },
+                {
+                    "atomType": "Input",
+                    "name": "ply_thk",
+                    "x": 0.04,
+                    "y": 0.7929515418502203,
+                    "uniqueID": 1747064496540,
+                    "ioValues": [],
+                    "description": "Adds an input to the parent molecule. If the parent molecule is the top level of the project then the input will be available when the project is shared or imported into another project. Name is editable",
+                    "type": "number"
+                },
+                {
+                    "atomType": "Extrude",
+                    "name": "Extrude",
+                    "x": 0.5823991031390134,
+                    "y": 0.5462555066079295,
+                    "uniqueID": 1747064518666,
+                    "ioValues": [
+                        {
+                            "name": "geometry",
+                            "ioValue": 1747064402235
+                        },
+                        {
+                            "name": "height",
+                            "ioValue": 0.8
+                        }
+                    ],
+                    "description": "Extrudes a 2D shape. Input can be negitive. "
                 }
             ],
             "allConnectors": [
+                {
+                    "ap1Name": "geometry",
+                    "ap2Name": "geometry1",
+                    "ap2Primary": false,
+                    "ap1ID": 1747064129127,
+                    "ap2ID": 1747064402235
+                },
                 {
                     "ap1Name": "number or geometry",
                     "ap2Name": "x length",
                     "ap2Primary": false,
                     "ap1ID": 1747064157468,
                     "ap2ID": 1747064129127
+                },
+                {
+                    "ap1Name": "number or geometry",
+                    "ap2Name": "x",
+                    "ap2Primary": false,
+                    "ap1ID": 1747064157468,
+                    "ap2ID": 1747064342205
                 },
                 {
                     "ap1Name": "number or geometry",
@@ -191,11 +265,11 @@
                     "ap2ID": 1747064249227
                 },
                 {
-                    "ap1Name": "result",
-                    "ap2Name": "x",
+                    "ap1Name": "geometry",
+                    "ap2Name": "geometry2",
                     "ap2Primary": false,
-                    "ap1ID": 1747064259691,
-                    "ap2ID": 1747064342205
+                    "ap1ID": 1747064309237,
+                    "ap2ID": 1747064402235
                 },
                 {
                     "ap1Name": "result",
@@ -203,14 +277,94 @@
                     "ap2Primary": false,
                     "ap1ID": 1747064342205,
                     "ap2ID": 1747064309237
+                },
+                {
+                    "ap1Name": "geometry",
+                    "ap2Name": "geometry",
+                    "ap2Primary": true,
+                    "ap1ID": 1747064402235,
+                    "ap2ID": 1747064518666
+                },
+                {
+                    "ap1Name": "number or geometry",
+                    "ap2Name": "height",
+                    "ap2Primary": false,
+                    "ap1ID": 1747064496540,
+                    "ap2ID": 1747064518666
+                },
+                {
+                    "ap1Name": "geometry",
+                    "ap2Name": "number or geometry",
+                    "ap2Primary": false,
+                    "ap1ID": 1747064518666,
+                    "ap2ID": 1747064117438
                 }
             ],
             "fileTypeVersion": 1,
-            "compiledBom": {}
+            "compiledBom": []
+        },
+        {
+            "atomType": "Constant",
+            "name": "height",
+            "x": 0.06726457399103139,
+            "y": 0.2577092511013216,
+            "uniqueID": 1747064545324,
+            "ioValues": [],
+            "description": "Defines a mathematical constant.",
+            "value": 10
+        },
+        {
+            "atomType": "Constant",
+            "name": "width",
+            "x": 0.06390134529147982,
+            "y": 0.44052863436123346,
+            "uniqueID": 1747064569746,
+            "ioValues": [],
+            "description": "Defines a mathematical constant.",
+            "value": 10
+        },
+        {
+            "atomType": "Constant",
+            "name": "ply_thk",
+            "x": 0.06278026905829596,
+            "y": 0.7070484581497798,
+            "uniqueID": 1747064588240,
+            "ioValues": [],
+            "description": "Defines a mathematical constant.",
+            "value": 0.8
         }
     ],
-    "allConnectors": [],
-    "unitsKey": "MM",
+    "allConnectors": [
+        {
+            "ap1Name": "Geometry",
+            "ap2Name": "number or geometry",
+            "ap2Primary": false,
+            "ap1ID": 1747064118277,
+            "ap2ID": 1747064084027
+        },
+        {
+            "ap1Name": "number",
+            "ap2Name": "height",
+            "ap2Primary": false,
+            "ap1ID": 1747064545324,
+            "ap2ID": 1747064118277
+        },
+        {
+            "ap1Name": "number",
+            "ap2Name": "width",
+            "ap2Primary": false,
+            "ap1ID": 1747064569746,
+            "ap2ID": 1747064118277
+        },
+        {
+            "ap1Name": "number",
+            "ap2Name": "ply_thk",
+            "ap2Primary": false,
+            "ap1ID": 1747064588240,
+            "ap2ID": 1747064118277
+        }
+    ],
+    "unitsKey": "Inches",
     "fileTypeVersion": 1,
     "compiledBom": {},
     "filetypeVersion": 1
